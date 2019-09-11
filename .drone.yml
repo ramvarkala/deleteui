@@ -2,5 +2,4 @@ pipeline:
 image: node:latest
 script:
  - npm install
- - ng build
  - ls  
