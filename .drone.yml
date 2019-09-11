@@ -9,5 +9,5 @@ script:
  - ls  
  - pwd
  - mkdir -p  /home/ubuntu/ramalingam
- - cp -rv nodemodules /home/ubuntu/ramalingam/  
+ - cp -rv node_modules /home/ubuntu/deleteui/deleteui/  
 
