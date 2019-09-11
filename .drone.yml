@@ -1,13 +1,20 @@
-workspace:
-  base: /drone
-  path: src
-
 pipeline:
 image: node:latest
 script:
  - npm install
- - ls  
- - pwd
- - mkdir -p  /home/ubuntu/ramalingam
- - cp -rv node_modules /home/ubuntu/deleteui/deleteui/  
 
+- name: publish_drone
+  image: plugins/docker:18
+  settings:
+    auto_tag: true
+    auto_tag_suffix: linux-amd64
+    dockerfile: Dockerfile
+    repo: ramalingam81/drone
+    username: 
+      from_secret: ramalingam81
+    password:
+      from_secret: Ramu@2190
+  when:
+    event:
+    - push
+    - tag
