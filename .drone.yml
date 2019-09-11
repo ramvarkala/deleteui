@@ -2,19 +2,9 @@ pipeline:
 image: node:latest
 script:
  - npm install
+ - ls
 
-- name: publish_drone
-  image: plugins/docker:18
-  settings:
-    auto_tag: true
-    auto_tag_suffix: linux-amd64
-    dockerfile: Dockerfile
-    repo: ramalingam81/drone
-    username: 
-      from_secret: ramalingam81
-    password:
-      from_secret: Ramu@2190
-  when:
-    event:
-    - push
-    - tag
+volumes:
+  - name: reports
+    host:
+      path: /home/ubuntu/work/src/github.com/ramvarkala/deleteui/reports
