@@ -1,0 +1,42 @@
+pipeline:
+image: node:latest
+script:
+ - npm install
+ - ls
+
+scp:
+  image: appleboy/drone-scp
+  host:
+    - 13.232.37.232
+  port: 22
+  username: ubuntu
+  target: /home/ubuntu/scp
+  secrets:  -----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA4zGF8f0itk4wzUV2ksbY1bPgFMcatfNM7O9d6CvmMm1M4acH8ulRa4nWp++K
+YQm9AI69NUlJZArBYA7zkRfCco+5+Uj2jos6kqqnFCWZf601DZTEpuaRVxJ+bax+vEsjP2TzsIW3
+4cI1ojS+xJ4qYxRuxEoaBGFXCdj4PvUB1oZxeL+ZM4qKzQjn/hQkJlm452o+E+eWmtbb2uyK9+Kk
+vwG1u6De99uZzNcP/V+L1i4VzHZijtLLPu25OadDutVmWksRNhOF//iSsD39MKYZAnhMiAlH1DWY
+XAYuebtBCSmnffcYWwuPnWHLXVSyPe2tSSzgGxoZYaQb4msR2UerRQIDAQABAoIBAQDHLtbhBm4V
+aM3OWZUQL7dQ/Gd7r+eSF6GcpGsvLrWeBkd+GkOUystwPaNtDkzCsJf8Uig9/GeUhv1saw9NaIg4
+ihuhGz/WTuhmR6k9t40w67j0lDYooUJRFUy0eKOQD0vyu14Op91D11HQSO/rT0OYJATMoK7YokJ9
+xrQ19fXLjeHLqT25Af9xKvRDr5lKARxWoKnRtIZ6ddRxTocbM32HkAa/8Knxa77jJOqAyK3/8Z+1
+4UVPUo+jdbBYxvjepttZFPAaj8HDRt/K6YXQA1OFtrCicvCRRTAviMlduGKUQCELon2jcIj85Xh1
+cBYjmjd+frisA/sf4rqu+6B62DDtAoGBAPv/aFuKg57DPVZuSiklGTdWqjpmj6trh8VtZgwsaMy3
+36uKDV1p7iijPspN2QwQlzq/3M9mQ2bEPX491hfeP32xEQ7uwvYqVaZMsP4ML6rzUS/QK5Ni8azy
+yYAZly1qpEFYzzlT/vryW/+S5fFsIrncyoAmWVHMcJyqVBVWa4sjAoGBAObNQ7g2WRfJQD9ZrEsm
+/QM4yPWC7OxhAjwqVP9K9pBGsntBuJpnApK4youVv91dqW2BAAT55Mu6AjL/UC+ejF/BydztA/zz
+H+Qf9rtCqnagf9VHLMEeD1Da81kyh/DmKruLfMdPqglR9+k/G0Wzr3JUsYIhhykPm6DlJQu/NOp3
+AoGBAMgrV1/vpSGFgMGZFfuc5mzYwJtnQJQv9EdU4QymchC7tkXygS9Ep9NL6OKV9+TngNk/8kwk
+tUF6fEY9JEUNW22iKySrb95OPn68yJLkZzDp2gGa4CJRJBv3Nyw0J6wB27u0qdal7BK2VXGr5E9j
+UCpHQeuNisG5HXK0sdnJLd/1AoGAWtpWW/9Y1tor5kQgZHz2f/wsbyiYpvwQ6yomx0/0+xo5S/e0
++WKvSp5fbM8H9dXWyfpLzamo/OE92GFUaUpaK5+XHNZYCYyS8zP55gD6JTRM3eHkpih1Evj9bhFM
+HfIcxDLGbZbYck7H7hMfYzK2T6UzMuyLzggM1SseiB8+b0UCgYBAikzxxM4KEZEYM0evb3Bd0UF3
+c612tJoS57q4pTN0K4inenP+P1zY2tQuQEEreyrpoo9LQFW88q3FGBoDSHKBhkY9W0zgxUSHrI/j
+0essGE4qinSIT9hrHeCygv44ZHtgz/gUvdZZYPGB2C0XyElfZU5l6UZ8la101uuesKL5Jw==
+-----END RSA PRIVATE KEY----- 
+  source:
+    - node_modules
+    - Dockerfile
+  when:
+    event: push
+      

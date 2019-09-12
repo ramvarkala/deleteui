@@ -1,0 +1,14 @@
+kind: pipeline
+
+
+test:
+image: node
+script: 
+  - npm install
+
+publish:
+image: plugins/ecr
+settings:
+  repo: ramalingam81/drone
+  tags: [ latest, 1.0, 1 ]
+
